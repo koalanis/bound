@@ -143,7 +143,7 @@ class Game:
       self.draw()
       self.FPSCLOCK.tick(self.FPS)
 
-  def controls(Racer,Line, event):
+  def controls(self, Racer,Line, event):
     if event.type==KEYDOWN and event.key == Racer.p[0]:
       if(math.sin(math.radians(Racer.angle))== 1.0):
         Racer.angle= Racer.angle-90
@@ -185,8 +185,8 @@ class Game:
           self.turnOff = True
           return
 
-        controls(self.red,self.redBound, event)
-        controls(self.blue,self.bluBound, event)
+        self.controls(self.red,self.redBound, event)
+        self.controls(self.blue,self.bluBound, event)
 
       self.red.move()
       self.redCount = self.redCount+1
