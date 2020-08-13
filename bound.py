@@ -3,6 +3,7 @@ import sys
 import random
 import math
 from pygame.locals import *
+from rich.console import Console
 
 
 # ---------------------------------------------
@@ -98,6 +99,9 @@ class Racer:
 
   def draw(self, dispWindow):
     pygame.draw.rect(dispWindow,self.color,(int(self.xPos-self.w//2), int(self.yPos-self.w//2), int(self.w), int(self.w)))
+
+
+console = Console()
 
 
 # ---------------------------------------------
@@ -214,12 +218,14 @@ class Game:
       #print "red loc "+ str((red.xPos,blue.yPos))
       if self.redBound.isHit(self.red.xPos,self.red.yPos) or self.bluBound.isHit(self.red.xPos,self.red.yPos):
         self.p1Points = self.p1Points+1
-        #print "red Hit - ("+str(self.red.xPos)+","+str(self.red.yPos)+")"
+        out = "p1 Hit - ("+str(self.red.xPos)+","+str(self.red.yPos)+")" 
+        console.print(out, style="bold red")
         self.gameOn = False
 
       if self.redBound.isHit(self.blue.xPos,self.blue.yPos) or self.bluBound.isHit(self.blue.xPos,self.blue.yPos):
         self.p2Points = self.p2Points+1
-        # print "blue Hit - ("+str(self.blue.xPos)+","+str(self.blue.yPos)+")"
+        out = "blue Hit - ("+str(self.blue.xPos)+","+str(self.blue.yPos)+")"
+        console.print(out, style="bold blue")
         self.gameOn = False
     else:
       self.init()
