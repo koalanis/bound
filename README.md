@@ -1,6 +1,6 @@
 # bound
 
-a tiny & rough pygame i wrote in college. recently resurrected from code graveyard
+a tiny & rough pygame i wrote in college. recently resurrected
 
 ```
 #install deps
